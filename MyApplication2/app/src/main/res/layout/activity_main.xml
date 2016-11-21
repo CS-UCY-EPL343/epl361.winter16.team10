@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="16dp"
+    android:background="@android:color/holo_red_dark"
+    tools:context="CafeMenu.myapplication.MainActivity">
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:ems="10"
+        android:id="@+id/editText2"
+        android:text="22103708 / 96619245"
+        android:textStyle="bold|italic"
+        tools:textSize="16sp"
+        android:layout_below="@+id/editText"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="16dp"
+        tools:style="@style/Widget.AppCompat.Light.AutoCompleteTextView"
+        android:textColor="@android:color/background_dark" />
+
+    <TextView
+        android:text="Map:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="51dp"
+        android:id="@+id/textView3"
+        android:textStyle="normal|bold"
+        tools:textSize="18sp"
+        android:textIsSelectable="false"
+        android:layout_below="@+id/editText2"
+        android:layout_toStartOf="@+id/button9"
+        android:layout_toLeftOf="@+id/button9"
+        android:textColor="@android:color/background_dark" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/map"
+        android:id="@+id/imageButton2"
+        android:layout_below="@+id/editText2"
+        android:layout_alignLeft="@+id/editText2"
+        android:layout_alignStart="@+id/editText2"
+        android:layout_marginTop="24dp" />
+
+    <Button
+        android:text="Menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button10"
+        android:minHeight="49dp"
+        android:minWidth="69dip"
+        android:textSize="13sp"
+        android:visibility="visible"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/holo_red_dark"
+        android:textColor="@android:color/background_light"
+        android:textStyle="normal|bold" />
+
+    <Button
+        android:text="FAQS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button7"
+        android:minHeight="49dp"
+        android:minWidth="69dip"
+        android:textSize="13sp"
+        android:visibility="visible"
+        android:layout_alignBaseline="@+id/button5"
+        android:layout_alignBottom="@+id/button5"
+        android:layout_toLeftOf="@+id/editText2"
+        android:layout_toStartOf="@+id/editText2"
+        android:background="@android:color/holo_red_dark"
+        android:textColor="@android:color/background_light"
+        android:textStyle="normal|bold" />
+
+    <Button
+        android:text="Order"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button8"
+        android:minHeight="49dp"
+        android:minWidth="69dip"
+        android:textSize="13sp"
+        android:scrollHorizontally="false"
+        android:visibility="visible"
+        android:elevation="?android:attr/windowFixedHeightMajor"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/button10"
+        android:layout_toEndOf="@+id/button10"
+        android:background="@android:color/holo_red_dark"
+        android:textColor="@android:color/background_light"
+        android:textStyle="normal|bold" />
+
+    <Button
+        android:text="Home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button9"
+        android:minHeight="49dp"
+        android:minWidth="69dip"
+        android:textSize="13sp"
+        android:visibility="visible"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/button10"
+        android:layout_toStartOf="@+id/button10"
+        android:background="@android:color/holo_red_dark"
+        android:textColor="@android:color/background_light"
+        android:textStyle="normal|bold" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/editText"
+        android:text="info@route66cafe.com.cy"
+        tools:textStyle="bold"
+        android:layout_below="@+id/imageView6"
+        android:layout_alignRight="@+id/button8"
+        android:layout_alignEnd="@+id/button8" />
+
+    <Button
+        android:text="CONTACT US"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button5"
+        android:minHeight="49dp"
+        android:minWidth="69dip"
+        android:textSize="13sp"
+        android:includeFontPadding="true"
+        android:visibility="visible"
+        android:textColorLink="@android:color/background_light"
+        android:layout_below="@+id/button10"
+        android:layout_toRightOf="@+id/button7"
+        android:layout_toEndOf="@+id/button7"
+        android:background="@android:color/holo_red_dark"
+        android:textColor="@android:color/background_light"
+        tools:textStyle="bold" />
+
+    <TextView
+        android:text="~ CONTACT US ~"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:textStyle="bold|italic"
+        tools:textSize="22sp"
+        android:layout_below="@+id/button7"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:textColor="@android:color/darker_gray"
+        android:textAllCaps="false"
+        android:textColorHighlight="?android:attr/textColorSecondaryActivated"
+        android:shadowColor="@android:color/background_light" />
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="140dp"
+        app:srcCompat="@drawable/logo"
+        android:id="@+id/imageView6"
+        android:scaleType="centerInside"
+        android:cropToPadding="false"
+        android:adjustViewBounds="true"
+        android:layout_marginTop="12dp"
+        android:layout_below="@+id/textView"
+        android:layout_alignRight="@+id/editText"
+        android:layout_alignEnd="@+id/editText" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        tools:text="Telephone: "
+        tools:textStyle="bold"
+        android:textStyle="bold|italic"
+        tools:textSize="18sp"
+        android:textAllCaps="false"
+        tools:textAllCaps="false"
+        android:textColor="@android:color/background_dark"
+        android:layout_alignBaseline="@+id/editText2"
+        android:layout_alignBottom="@+id/editText2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="22dp"
+        android:layout_marginStart="22dp" />
+
+</RelativeLayout>
