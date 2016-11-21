@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_home"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.irini.cafeorderingsystem.Home">
+
+    <Button
+        android:text="Home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button9"
+        android:minHeight="49dp"
+        android:minWidth="69dip"
+        android:textSize="13sp"
+        android:visibility="visible"
+        android:layout_alignParentTop="true"
+        android:textColor="@android:color/background_light"
+        android:textStyle="normal|bold" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <ViewFlipper
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/viewFlipper"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" >
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                app:srcCompat="@drawable/fruit_smoothies"
+                android:id="@+id/imageView4" />
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="437dp"
+                app:srcCompat="@drawable/belgian_chocolate_cookie"
+                android:id="@+id/imageView" />
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                app:srcCompat="@drawable/chocolatefrappucino"
+                android:id="@+id/imageView2" />
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                app:srcCompat="@drawable/cookies_n_cream"
+                android:id="@+id/imageView3" />
+
+        </ViewFlipper>
+    </LinearLayout>
+</RelativeLayout>
