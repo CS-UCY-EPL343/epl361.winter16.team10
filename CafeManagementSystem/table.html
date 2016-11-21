@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <script>
+    var e = document.getElementById('parent');
+e.onmouseover = function() {
+  document.getElementById('popup').style.display = 'block';
+}
+e.onmouseout = function() {
+  document.getElementById('popup').style.display = 'none';
+}
+function close_window() {
+      close();
+  
+}
+  </script>
+
+  <meta charset="UTF-8">
+  <title>Orders: </title>
+  <style type="text/css">
+    .popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* The actual popup (appears on top) */
+
+  .auto-style1 {
+	  vertical-align: middle;
+	  color: #FF0000;
+  }
+table, th, td {
+   border: 1px solid black;
+}
+#parent #popup {
+  display: none;
+}
+
+#parent:hover #popup {
+  display: block;
+}
+  </style>
+  <h1><span class="auto-style1">Orders</span>: </h1>
+  <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+  <script>
+// When the user clicks on <div>, open the popup
+function myFunction() {
+    var popup = document.getElementById('myPopup');
+    popup.classList.toggle('show');
+}
+</script>
+  <table class="table" align="center">
+    <thead>
+      <tr>
+        <td>Name</td>
+        <td>Address</td>
+        <td>Date</td>
+        <td>Order:</td>
+        <td>Comments</td>
+        <td>Delivered:</td>
+      
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Marios Nikolaou</td>
+        <td>Chiou 5</td>
+        <td>21/11/2016  </td>
+        <td><a href="url.com" title="1 Fredo Esspreso">Mouseover me</a></td>
+          <td><a href="url.com" title="No comment">Mouseover me</a> </td>
+        <td><input type="checkbox" name="name1" /></td>
+      </tr>
+       <tr>
+        <td>Alex Katsoudas</td>
+        <td>Lesvou 7</td>
+        <td>21/11/2016</td>
+        <td><a href="url.com" title="1 Fresh Juice, 2 Frappe">Mouseover me</a></td>
+      <td><a href="url.com" title="No comment">Mouseover me</a> </td>
+        <td><input type="checkbox" name="name1" /></td>
+      </tr>
+       <tr>
+        <td>Nikoletta Georgiou</td>
+        <td>Makariou 2</td>
+        <td>21/11/2016</td>
+         <td><a href="url.com" title="2 Capuccino">Mouseover me</a></td>
+           <td><a href="url.com" title="make both sweet">Mouseover me</a></td>
+        <td><input type="checkbox" name="name1" /></td>
+      </tr>
+       <tr>
+        <td>Giwrgos Efstathiou</td>
+        <td>Makedonias 34</td>
+        <td>21/11/2016</td>
+         <td><a href="url.com" title="1 Latte, 1 Sausage Pie">Mouseover me</a></td>
+           <td><a href="url.com" title="a little sugar">Mouseover me</a></td>
+        <td><input type="checkbox" name="name1" /></td>
+      </tr>
+       <tr>
+        <td>Margarita Agathocleous</td>
+        <td>Vasiliou 3</td>
+        <td>21/11/2016</td>
+         <td><a href="url.com" title="2 Frappe">Mouseover me</a></td>
+          <td><a href="url.com" title="first one no milk, second one half milk">Mouseover me</a></td>
+        <td><input type="checkbox" name="name1" /></td>
+      </tr>
+ <tr>
+        <td>Gianna Nicolaou</td>
+        <td>Istrou 9</td>
+        <td>21/11/2016</td>
+        <td><a href="url.com" title="1 caramel Latte">Mouseover me</a></td>
+    <td><a href="url.com" title="3 shots of caramel, 2 shots coffee">Mouseover me</a></td>
+        <td><input type="checkbox" name="name1" /></td>
+      </tr>
+
+
+
+
+    </tbody>
+</table>
+
+<button type="button" 
+        onclick="close_window();return false;">Logout and Exit</button>  
+</body>
+</html>
