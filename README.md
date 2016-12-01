@@ -2,7 +2,7 @@
 
 -Cafeteria Order Android Application
 
--Cafeteria Order Management System site
+-Cafeteria Order Management System HTML site and log in site
 ->
 View all Orders ,
 Choose Order status,
