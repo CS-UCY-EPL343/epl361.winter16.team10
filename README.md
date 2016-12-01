@@ -4,7 +4,7 @@
 
 -Cafeteria Order Management System site
 ->
-View all Orders 
-Choose Order status
-View Order Details
+View all Orders ,
+Choose Order status,
+View Order Details,
 Contact information of customer
