@@ -1,0 +1,498 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<!-- 
+<style>
+body {
+    background-color: #ADD8E6;
+}
+</style> -->
+<!-- -->
+<style>
+body {
+    background-image: url("backgr1.jpg");
+<!--Make Image resize on browser -->
+   background-repeat:no-repeat;
+
+   background-size:cover;
+<!-- -->
+    background-color: #ADD8E6;
+}
+</style>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+
+  
+  
+
+  
+  
+  
+
+  
+
+  <!-- -->
+  <script type="text/javascript" src="jquery-3.1.1.js"></script>
+
+  
+
+  
+
+  
+
+  
+    <link rel="stylesheet" type="text/css" href="https://fiddle.jshell.net/css/result-light.css">
+  
+
+  
+    
+      <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    
+  
+    
+      <script type="text/javascript" src="jquery-ui.js"></script>
+    
+
+
+<!-- -->
+    
+  
+
+  
+  
+
+  <style type="text/css">
+    .left{display:inline-block}
+.right{display:inline-block; float:right}
+.beshbackgr {
+          color:white;
+
+    background-color: #C3A26C;
+    padding: 3px; /*a bit of space around the text*/
+}
+.beshbackgrwithblue {
+          color:blue;
+
+    background-color: #C3A26C;
+    padding: 3px; /*a bit of space around the text*/
+}
+.beshbackgrwithblack {
+          color:black;
+
+    background-color: #C3A26C;
+    padding: 3px; /*a bit of space around the text*/
+}
+.beshbackgrwithred {
+          color:red;
+
+    background-color: #C3A26C;
+    padding: 3px; /*a bit of space around the text*/
+}
+.whiteText
+    {
+        color:white;
+    }
+ .redText
+    {
+        color:red;
+    }
+    .blackText
+    {
+        color:black;
+    }
+    .blueText
+    {
+        color:blue;
+        font-weight:bold;
+    }
+
+
+
+
+
+.header img {
+  float: left;
+  width: 100px;
+  height: 100px;
+  background: #555;
+}
+
+.header h1 {
+  position: relative;
+  top: 18px;
+  left: 10px;
+}
+
+
+label,
+input {
+  display: block;
+}
+
+input.text {
+  margin-bottom: 12px;
+  width: 95%;
+  padding: .4em;
+}
+
+fieldset {
+  padding: 0;
+  border: 0;
+  margin-top: 25px;
+}
+
+td {
+  max-width: 120px;
+  white-space: nowrap;
+}
+
+h1 {
+  font-size: 1.2em;
+  margin: .6em 0;
+}
+
+/*div#users-contain {
+  width: 300px;
+  margin: 20px 0;
+}*/
+div#users-contain {
+   margin: 20px 0;
+   //width: 300px; /* remove this width and make it 100%; */
+}
+
+div#users-contain table {
+  margin: 1em 0;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+div#users-contain table td,
+div#users-contain table th {
+  border: 8px solid #eee;
+  padding: .0em 12px ;
+  text-align: left;//
+}
+
+.ui-dialog .ui-state-error {
+  padding: .3em;
+}
+
+.validateTips {
+  border: 1px solid transparent;
+  //padding: 0.1em;
+}
+.address_l{
+padding-left: 9px !important;
+white-space: normal;
+
+  }
+  
+  </style>
+
+  <title>Order Management System</title>
+
+  
+    
+
+
+
+
+<script type='text/javascript'>//<![CDATA[
+window.onload=function(){
+$(function() {
+  var dialog, form,
+    emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
+    name = $("#name"),
+    email = $("#email"),
+    password = $("#password"),
+    allFields = $([]).add(name).add(email).add(password),
+    tips = $(".validateTips");
+
+  function updateTips(t) {
+    tips
+      .text(t)
+      .addClass("ui-state-highlight");
+    setTimeout(function() {
+      tips.removeClass("ui-state-highlight", 1500);
+    }, 500);
+  }
+
+  function checkLength(o, n, min, max) {
+    if (o.val().length > max || o.val().length < min) {
+      o.addClass("ui-state-error");
+      updateTips("Length of " + n + " must be between " +
+        min + " and " + max + ".");
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  function checkRegexp(o, regexp, n) {
+    if (!(regexp.test(o.val()))) {
+      o.addClass("ui-state-error");
+      updateTips(n);
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  function addUser() {
+    var valid = true;
+    allFields.removeClass("ui-state-error");
+
+    valid = valid && checkLength(name, "username", 3, 16);
+    valid = valid && checkLength(email, "email", 6, 80);
+    valid = valid && checkLength(password, "password", 5, 16);
+
+    valid = valid && checkRegexp(name, /^[a-z]([0-9a-z_\s])+$/i, "Username may consist of a-z, 0-9, underscores, spaces and must begin with a letter.");
+    valid = valid && checkRegexp(email, emailRegex, "eg. ui@jquery.com");
+    valid = valid && checkRegexp(password, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9");
+
+    if (valid) {
+      $("#users tbody").append("<tr>" +
+        "<td>" + name.val() + "</td>" +
+        "<td>" + email.val() + "</td>" +
+        "<td>" + password.val() + "</td>" +
+        "</tr>");
+      dialog.dialog("close");
+    }
+    return valid;
+  }
+
+  dialog = $("#dialog-form").dialog({
+    autoOpen: false,
+    height: 400,
+    width: 350,
+    modal: true,
+    buttons: {
+      Ok: function() {
+        dialog.dialog("close");
+      }
+    },
+    close: function() {
+      form[0].reset();
+      allFields.removeClass("ui-state-error");
+    }
+  });
+
+  form = dialog.find("form").on("submit", function(event) {
+    event.preventDefault();
+    addUser();
+  });
+
+  $(".showDialog").button().on("click", function() {
+    dialog.dialog("open");
+  });
+});
+var rowCount = $('#users > tbody > tr').length;
+
+$("#MyEdit").html(rowCount);
+}//]]> 
+
+</script>
+
+  
+</head>
+
+<body>
+  <div id="dialog-form" title="Order Details">
+  <p class="validateTips"><b><u>Products :</u></b> </p>
+ 
+  <p class="validateTips"><b>1x</b>Honey Mustard Chicken Wrap</p>
+  <p class="validateTips"><b>1x</b>Fresh Juice</p>
+
+  <form>
+    <fieldset>
+      <label for="name"><b><u>More Comments:</u></b></label>
+      <p class="validateTips">only lettuce in wrap</p>
+      <p class="validateTips"><b><u><center>Total price: 8.50</center></u></b>  </p>
+
+      <!-- Allow form submission with keyboard without duplicating the dialog button -->
+      <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+    </fieldset>
+  </form>
+</div>
+<div id="users-contain" class="ui-widget">
+<div class="header">
+  <img src="logo.png" alt="logo"  />
+  
+  <h1 style="font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', sans-serif;" style="top:0;" class="whiteText"><font size="20">Cafe Route 66</font></h1>
+  
+</div>
+<p style="clear: both;"></p>
+  <!--<h1>Orders Management:</h1>-->
+  <div style="border-bottom:1px ;"> 
+  <div class="left"><h1 class="whiteText"><font size="5">Orders Management:</font></h1></div>
+  <div class="right"><span class="beshbackgr" class="whiteText"><font size="4">Logged in as:</font></span>&nbsp;<span class="beshbackgrwithblue" class="blueText"><font size="4">Admin</font></span>&nbsp;<span class="redText"><a href="login_page.html" class="beshbackgrwithred"class="redText"><font size="4">Logout</font></a></span>
+ </div>
+</div>
+<!-- -->
+  <table id="users" class="ui-widget ui-widget-content">
+    <thead>
+      <tr class="ui-widget-header ">
+      <tr bgcolor="#C59F6E">
+        <th><font size="4">Order No</font></th>
+
+        <th><font size="4">Name/Surname</font></th>
+        <th><font size="4">Address</font></th>
+        <th><font size="4">Telephone</font></th>
+        <th><font size="4">Time/Date</font></th>
+        <th><font size="4">Order Details</font></th>
+        <th><font size="4">Order Status</font></th>
+        <th><font size="4">Delivered</font></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+              <td>1</td>
+
+        <td>John Doe</td>
+        <td class="address_l">Ayias Lavras 19, 2109 Aglantzia</td>
+        <td>99123456</td>
+        <td>14:21 28/11/16</td>
+        <td>
+       
+          <button id="create-user-1" class="showDialog">Show</button>
+        </td>
+        	<td><select name="D1">
+		<option value="none">None</option>
+		<option value="pending">Pending</option>
+		<option value="done">Done</option>
+		</select></td>
+        
+        <td align="center">
+          <input type="checkbox" class="case" name="case" value="1" />
+      </tr>
+      <tr>
+      <td>2</td>
+        <td>Maria Lambrou</td>
+        <td class="address_l">Arsinois 12, 2109 Aglantzia</td>
+        <td>99654789</td>
+        <td>15:01 28/11/16</td>
+        <td>
+          <button id="create-user-2" class="showDialog">Show</button>
+        </td>
+         	<td><select name="D1">
+		<option value="none">None</option>
+		<option value="pending">Pending</option>
+		<option value="done">Done</option>
+		</select></td>
+        <td align="center">
+          <input type="checkbox" class="case" name="case" value="1" />
+      </tr>
+       <tr>
+              <td>3</td>
+
+        <td>Marios Neofytou</td>
+        <td class="address_l">Thermopylon 3, 2109 Aglantzia</td>
+        <td>99463267</td>
+        <td>16:30 28/11/16</td>
+        <td>
+       
+          <button id="create-user-3" class="showDialog">Show</button>
+        </td>
+        	<td><select name="D1">
+		<option value="none">None</option>
+		<option value="pending">Pending</option>
+		<option value="done">Done</option>
+		</select></td>
+        
+        <td align="center">
+          <input type="checkbox" class="case" name="case" value="1" />
+      </tr>
+      <tr>
+              <td>4</td>
+
+        <td>John Smith</td>
+        <td class="address_l">Souliou 32, 2109 Aglantzia</td>
+        <td>99786412</td>
+        <td>16:36 28/11/16</td>
+        <td>
+       
+          <button id="create-user-4" class="showDialog">Show</button>
+        </td>
+        	<td><select name="D1">
+		<option value="none">None</option>
+		<option value="pending">Pending</option>
+		<option value="done">Done</option>
+		</select></td>
+        
+        <td align="center">
+          <input type="checkbox" class="case" name="case" value="1" />
+      </tr>
+      <tr>
+              <td>5</td>
+
+        <td>Dimitris Kyriakou</td>
+        <td class="address_l">Griva Digeni 14, 2109 Aglantzia</td>
+        <td>99075079</td>
+        <td>17:13 28/11/16</td>
+        <td>
+       
+          <button id="create-user-5" class="showDialog">Show</button>
+        </td>
+        	<td><select name="D1">
+		<option value="none">None</option>
+		<option value="pending">Pending</option>
+		<option value="done">Done</option>
+		</select></td>
+        
+        <td align="center">
+          <input type="checkbox" class="case" name="case" value="1" />
+      </tr>
+      <tr>
+              <td>6</td>
+
+        <td>Orestis Markou</td>
+        <td class="address_l">Pireos 10, 2109 Aglantzia</td>
+        <td>99436743</td>
+        <td>18:05 28/11/16</td>
+        <td>
+       
+          <button id="create-user-6" class="showDialog">Show</button>
+        </td>
+        	<td><select name="D1">
+		<option value="none">None</option>
+		<option value="pending">Pending</option>
+		<option value="done">Done</option>
+		</select></td>
+        
+        <td align="center">
+          <input type="checkbox" class="case" name="case" value="1" />
+      </tr>
+      <tr>
+              <td>7</td>
+
+        <td class="address_l">Despina Hadjipetrou</td>
+        <td class="address_l">Falirou 5, 2109 Aglantzia</td>
+        <td>96421278</td>
+        <td>18:10 28/11/16</td>
+        <td>
+       
+          <button id="create-user-7" class="showDialog">Show</button>
+        </td>
+        	<td><select name="D1">
+		<option value="none">None</option>
+		<option value="pending">Pending</option>
+		<option value="done">Done</option>
+		</select></td>
+        
+        <td align="center">
+          <input type="checkbox" class="case" name="case" value="1" />
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+  <div style="position: relative ; bottom: 5px; background-color: #C3A26C">
+  <div id="MyEdit" style="display:inline-block" class="beshbackgrwithblack">    This text will change </div><span class="beshbackgrwithblack">  : Orders </span>
+    </div>
+  
+</body>
+
+</html>
+
